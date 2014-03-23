@@ -21,9 +21,13 @@ subtest "mountpoint should be required" => sub {
 };
 
 subtest "run should call Fuse::Simple::main and LWP::Simple::get" => sub {
+  my $random_cat_pic;
+
   mock 'LWP::Simple'
     => method 'get'
     => should {
+      $random_cat_pic = shift;
+
       'random'
     };
 
@@ -41,6 +45,8 @@ subtest "run should call Fuse::Simple::main and LWP::Simple::get" => sub {
    my $catfs = Acme::CatFS->new(mountpoint => '/');
 
    $catfs->run;
+
+   is $random_cat_pic, $catfs->cat_url, 'should call LWP::Simple::get with cat_url';
 };
 
 done_testing();
