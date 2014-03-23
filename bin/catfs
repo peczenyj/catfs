@@ -1,0 +1,4 @@
+#!/usr/bin/env perl
+use Acme::CatFS;
+
+Acme::CatFS->new_with_options->run();
