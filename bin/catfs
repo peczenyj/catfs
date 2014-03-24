@@ -1,4 +1,13 @@
 #!/usr/bin/env perl
+
+# ABSTRACT: catfs is the init script for Acme::CatFS
+
 use Acme::CatFS;
 
 Acme::CatFS->new_with_options->run();
+
+=head1 SYNOPSIS
+
+  catfs --mountpoint /tmp/catfs
+
+=cut
