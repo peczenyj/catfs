@@ -1,12 +1,12 @@
-catfs
-=====
+acme-catfs
+==========
 
 Perl Fuse random cat picture [![CPAN version](https://badge.fury.io/pl/Acme-CatFS.png)](http://badge.fury.io/pl/Acme-CatFS) [![Build Status](https://travis-ci.org/peczenyj/catfs.svg?branch=master)](https://travis-ci.org/peczenyj/catfs)
 
 How it works? Simple! You install Acme::CatFS via cpan ( or cpanm ) and run catfs script
 
 ```
-  $ catfs --mountpoint /path/to/catfs
+  $ acme-catfs --mountpoint /path/to/catfs
  
   # in other terminal
   $ ls /path/to/catfs/cat.jpg     # first time can be slow
