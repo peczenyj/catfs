@@ -28,4 +28,6 @@ It is the equivalent to:
   );
 ```
 
+Dependencies: libfuse-dev
+
 Enjoy
