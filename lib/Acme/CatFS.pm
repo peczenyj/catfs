@@ -114,11 +114,27 @@ Acme::CatFS
 
 Acme::CatFS will create a Fuse mountpoint and generate one virtual file, a random image of a cat. Will return a different image each time.
 
+It is the equivalent to:
+
+  Fuse::Simple::main(
+    mountpoint => $mountpoint,
+    "/"        => {
+      'cat.jpg' => sub {
+          LWP::Simple::get('http://thecatapi.com/api/images/get?format=src&type=jpg');
+       },
+    },
+  );
+
 =head1 METHODS
 
 =head2 run
 
-Will initialize hte Fuse mountpoint.
+Will initialize the Fuse mountpoint.
+
+=head1 SCRIPT
+
+You can call acme-catfs helper script in you command line to easily create the mountpoint. Try C<acme-catfs -h> to see the options.
+
 
 =head1 ATTRIBUTES
 
@@ -145,6 +161,26 @@ If true, we will fork then exit.
 =head2 cached
 
 if true, we will cache the cat picture instead download a new one.
+
+=head1 SEE ALSO
+
+L<Fuse::Simple> and L<Fuse>
+
+=head1 ACKNOWLEDGE
+
+Thanks to Julia Evans (twitter => @b0rk, blog => L<http://jvns.ca/>) with the original idea and support on twitter. And Nick Waterman (pause => NOSEYNICK) by L<Fuse::Simple> module - it is awesome!
+
+=head1 AUTHOR
+
+Tiago Peczenyj, E<lt>tiago.peczenyj@gmail.comE<gt>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (C) 2014 by Tiago Peczenyj
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself, either Perl version 5.10.0 or,
+at your option, any later version of Perl 5 you may have available.
 
 =cut
 
